@@ -1,0 +1,104 @@
+<div class="container mt-4">
+
+  <h1 class="mb-4">Cadastro de Cidades</h1>
+
+  <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+
+    <div class="mb-3">
+      <label class="form-label">Nome da cidade</label>
+
+      <input
+        type="text"
+        class="form-control"
+        formControlName="nome">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Estado</label>
+
+      <input
+        type="text"
+        class="form-control"
+        formControlName="estado">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">População</label>
+
+      <input
+        type="number"
+        class="form-control"
+        formControlName="populacao">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Região</label>
+
+      <select
+        class="form-select"
+        formControlName="regiao">
+
+        <option value="">Selecione uma região</option>
+        <option value="Norte">Norte</option>
+        <option value="Nordeste">Nordeste</option>
+        <option value="Centro-Oeste">Centro-Oeste</option>
+        <option value="Sudeste">Sudeste</option>
+        <option value="Sul">Sul</option>
+
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="formulario.invalid">
+
+      Cadastrar
+
+    </button>
+
+  </form>
+
+</div>
+
+<hr class="my-5">
+
+<h2 class="mb-4">Cidades cadastradas</h2>
+
+<div class="row">
+
+  <div
+    class="col-md-4 mb-4"
+    *ngFor="let cidade of cidades">
+
+    <div class="card">
+
+      <div class="card-body">
+
+        <h5 class="card-title">
+          {{ cidade.nome }}
+        </h5>
+
+        <p class="card-text">
+          <strong>Estado:</strong> {{ cidade.estado }}
+        </p>
+
+        <p class="card-text">
+          <strong>População:</strong> {{ cidade.populacao }}
+        </p>
+
+        <p class="card-text">
+          <strong>Região:</strong> {{ cidade.regiao }}
+        </p>
+
+        <p class="card-text">
+          <strong>ID:</strong> {{ cidade.id }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
